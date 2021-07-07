@@ -4,7 +4,7 @@ import styles from './UserListItemHW.module.css';
 export default function UserHW (props) {
     const { 
         info: {id, firstName, lastName, age, imgSrc, imgThumbUp, likesCount, bin, heart}, 
-        handlers: {addLike, clickElement, deleteElement} 
+        handlers: {addLike, clickElement, deleteElement}, 
     } = props;
 
     return (

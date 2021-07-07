@@ -6,7 +6,7 @@ class UserHW extends Component {
     
         this.state = {
             id: 1,
-            firstName: 'Dimas',
+            firstName: 'Greg',
             lastName: 'Henry',
             age: 12,
             imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppkoKsaYMuIoNLDH7O8ePOacLPG1mKXtEng&usqp=CAU',

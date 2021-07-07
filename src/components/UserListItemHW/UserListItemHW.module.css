@@ -4,6 +4,7 @@
 
 body {
     height: 100vh;
+    min-width: 500px;
 }
 
 :root {
@@ -16,12 +17,12 @@ ul {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 55%;
     margin: 0 auto;
 }
 
 li {
-    margin: 10px 0 0;
+    margin: 10px 0 2px;
     padding: 3px;
     border: 3px outset rgb(34, 30, 30);
     border-radius: 10px;
@@ -80,7 +81,7 @@ h2 ~ p {
 
 .thumbUp{
     position: absolute;
-    right: 3px;
+    right: 10px;
     bottom: 12px;
     border-radius: 1px;
     box-shadow: 0px 0px 0px black;
@@ -89,8 +90,8 @@ h2 ~ p {
 
 .bin {
     position: absolute;
-    top: 3px;
-    right: 3px;
+    top: 5px;
+    right: 10px;
     cursor: pointer;
 }
 
@@ -98,4 +99,68 @@ h2 ~ p {
     background: linear-gradient(red, snow, white);
     border: 3px outset rgb(233, 79, 79);
     box-shadow: 5px 5px 5px rgb(90, 43, 43);
+}
+
+.deletedElem{
+    transform: scale(0.1);
+    transition-property: transform;
+    transition-duration:0.2s;
+}
+
+@media screen and (max-width: 1020px) {
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 75%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 85%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 95%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 98%;
+        padding: 0px;
+    }
+
+    li {
+        margin: 8px 0 4px;
+        padding: 3px;
+        border: 3px outset rgb(34, 30, 30);
+        border-radius: 10px;
+        width: 98%;
+        height: 420px;
+        position: relative;
+        background: linear-gradient(lightblue,  white);
+    }
 }
