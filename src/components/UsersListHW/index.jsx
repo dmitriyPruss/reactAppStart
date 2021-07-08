@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UserListItemHW from '../UserListItemHW'
+import UserListItemHW from '../UserListItemHW';
 import dbUsers from './dbUsers.js';
 import styles from './../UserListItemHW/UserListItemHW.module.css';
 
@@ -21,7 +21,7 @@ export default class UsersListHW extends Component {
                 newUser.likesCount++;
 
                 this.setState( state => 
-                    state.users[index].likesCount = newUser.likesCount   
+                    state.users[index].likesCount = newUser.likesCount  
                 );
             };
         });
@@ -31,7 +31,7 @@ export default class UsersListHW extends Component {
 
         const [targetId, newUsers] = this.getUsers( {target} );
 
-        newUsers.map( (newUser, index) => {
+        newUsers.map( newUser => {
             if (targetId === newUser.id) {
                 if(target.tagName !== 'li') {
                     target = target.closest('li');
@@ -77,9 +77,10 @@ export default class UsersListHW extends Component {
         const { users } = this.state;
 
         const handlers = {};
-        
+
         for(const key in this) {
-            if (typeof this[key] === 'function') {
+            if (typeof this[key] === 'function' && key !== 'setState' 
+            && key !== 'forceUpdate') {
                 handlers[key] = this[key];
             }
         };
