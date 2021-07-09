@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import styles from './UserListItemHW.module.css';
 
-export default function UserHW (props) {
+export default function UserListItemHW (props) {
     const { 
-        info: {id, firstName, lastName, age, imgSrc, imgThumbUp, likesCount, bin, heart}, 
-        handlers: {addLike, clickElement, deleteElement}, 
+        info: { id, firstName, lastName, age, imgSrc, likesCount, },
+        imgDetails: { imgThumbUp, bin, heart, }, 
+        handlers: { addLike, clickElement, deleteElement, }, 
     } = props;
 
     return (
