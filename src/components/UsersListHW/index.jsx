@@ -8,7 +8,8 @@ export default class UsersListHW extends Component {
         super(props);
     
         this.state = {
-            users: dbUsers.map(dbUser => ( {...dbUser, likesCount: 0} ) ),
+            users: dbUsers.map(dbUser => ( {...dbUser, likesCount: 0, 
+            isSelected: false, isDeleted: false, } ) ),
         };
     };
 
@@ -30,7 +31,7 @@ export default class UsersListHW extends Component {
         const clickElement = () => {
             const newUsers = [...users];
 
-            newUsers[index].className = styles.clickedElement;
+            newUsers[index].isSelected = !newUsers[index].isSelected;
             this.setUsers(newUsers);
         };
 
@@ -38,15 +39,18 @@ export default class UsersListHW extends Component {
     
             const newUsers = [...users];
 
-            // const promise = new Promise( response => {
-            //     target.classList.add(styles.deletedElem);
-            //     setTimeout( () => response(target), 220);
-            // });
+            const promise = new Promise( response => {
+                newUsers[index].isSelected = false;
+                newUsers[index].isDeleted = !newUsers[index].isDeleted;
+
+                this.setUsers(newUsers);
+                setTimeout( () => response(true), 220);
+            });
                         
-            // promise.then( () => {
-            //     newUsers.splice(index, 1);
-            //     this.setState({users: newUsers});
-            // });
+            promise.then( () => {
+                newUsers.splice(index, 1);
+                this.setState({users: newUsers});
+            });
         }
 
         const handlers = {
@@ -64,9 +68,11 @@ export default class UsersListHW extends Component {
         const { users } = this.state;
 
         return (
-            <ul>
-                {users.map(this.listItems)}
-            </ul>
+            <article className={styles.mainContainer}>
+                <ul className={styles.itemsContainer}>
+                    {users.map(this.listItems)}
+                </ul>
+            </article>
         )
     }
 }
