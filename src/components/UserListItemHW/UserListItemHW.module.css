@@ -2,14 +2,14 @@
     box-sizing: border-box;
 }
 
+:root {
+    font-size: 15px;
+}
+
 .mainContainer {
     height: 100vh;
     min-width: 500px;
     max-width: 1400px;
-}
-
-:root {
-    font-size: 15px;
 }
 
 .itemsContainer {
@@ -54,7 +54,7 @@
     font-style: italic;
 }
 
-.photo{
+.photo {
     border-radius: 15px;
     object-fit: cover;
     box-shadow: 5px 5px 5px rgb(109, 103, 103);
@@ -79,7 +79,7 @@
     color: rgb(148, 30, 30);
 }
 
-.thumbUp{
+.thumbUp {
     position: absolute;
     right: 10px;
     bottom: 12px;
@@ -95,13 +95,13 @@
     cursor: pointer;
 }
 
-.clickedElement{
+.clickedElement {
     background: linear-gradient(red, snow, white);
     border: 3px outset rgb(233, 79, 79);
     box-shadow: 5px 5px 5px rgb(90, 43, 43);
 }
 
-.deletedElement{
+.deletedElement {
     transform: scale(0.1);
     transition-property: transform;
     transition-duration:0.2s;

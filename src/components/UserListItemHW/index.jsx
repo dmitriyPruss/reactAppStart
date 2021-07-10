@@ -9,8 +9,8 @@ export default function UserListItemHW (props) {
     } = props;
 
     function renderItemClasses() {
-        return isSelected ? `${styles.listItem} ${styles.clickedElement}` : isDeleted
-        ? `${styles.listItem} ${styles.deletedElement}` : styles.listItem;
+        return isSelected ? `${styles.listItem} ${styles.clickedElement}` : 
+        isDeleted ? `${styles.listItem} ${styles.deletedElement}` : styles.listItem;
     }  
 
     return (

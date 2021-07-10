@@ -17,33 +17,29 @@ export default class UsersListHW extends Component {
         this.setState({users: newUsers});
     };
 
-
-    listItems = (user, index) => {
+    showListItems = (user, index) => {
 
         const { users } = this.state;
+        const newUsers = [...users];
 
         const addLike = () => {
-            const newUsers = [...users];
             newUsers[index].likesCount++;
             this.setUsers(newUsers);      
-        }; 
+        }
 
         const clickElement = () => {
-            const newUsers = [...users];
-
             newUsers[index].isSelected = !newUsers[index].isSelected;
             this.setUsers(newUsers);
-        };
+        }
 
         const deleteElement = () => {
-    
-            const newUsers = [...users];
 
             const promise = new Promise( response => {
                 newUsers[index].isSelected = false;
                 newUsers[index].isDeleted = !newUsers[index].isDeleted;
 
                 this.setUsers(newUsers);
+
                 setTimeout( () => response(true), 220);
             });
                         
@@ -63,14 +59,13 @@ export default class UsersListHW extends Component {
         imgDetails={imgDetails} handlers={handlers}/>;
     };
 
-
     render() {
         const { users } = this.state;
 
         return (
             <article className={styles.mainContainer}>
                 <ul className={styles.itemsContainer}>
-                    {users.map(this.listItems)}
+                    {users.map(this.showListItems)}
                 </ul>
             </article>
         )
