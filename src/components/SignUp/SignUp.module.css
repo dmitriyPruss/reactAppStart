@@ -1,0 +1,188 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 16px;
+}
+
+.container {
+    height: 95%;
+    width: 90%;
+    margin: 10px auto;
+    padding: 20px;
+    box-shadow: 2px 7px 7px rgb(3, 28, 61);
+    overflow-y: auto;
+    background: linear-gradient(blue, lightblue, white, lightblue);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.mainContent {
+    margin: 45px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.header{
+    justify-self: flex-start;
+    color: white;
+}
+
+.formBlock1 {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.formBlock2 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.fullname, .email, .phone, .otherInfo{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.userName, .password {
+    width: 100%;
+}
+
+.emailInput {
+    width: 100%;
+}
+
+
+input, textarea, select {
+    font-size: 1.1rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+input, label, select {
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+
+.valid {
+    border-color: rgb(60, 67, 161);
+    background-color: rgb(131, 164, 196);
+}
+  
+.invalid {
+    border-color: rgb(160, 30, 30);
+    background-color: rgb(226, 177, 177);
+}
+
+.onFocus {
+    background: rgb(153, 236, 232);
+    border: 2px double blue;
+}
+
+.line {
+    width: 100%;
+}
+
+.button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.button > .submitButton {
+    width: 50%;
+    height: 35px;
+    line-height: 17px;
+    padding: 3px 0;
+    border: 3px solid rgb(27, 3, 65);
+    border-radius: 25px;
+    background:rgb(14, 40, 110);
+    color: rgb(230, 234, 236);
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 890px) {
+    article {
+        display: flex;
+        flex-direction: column;
+        height: 97%;
+        width: 99%;
+        margin: 0 auto;
+        padding: 2px;
+        color: white;
+        box-shadow: -1px -1px 5px 5px rgb(7, 95, 88);
+    }
+
+    section {
+        margin: 35px 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .fullname, .phone{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: space-between;
+    }
+
+    .fullname > input {
+        width: 100%;
+    }
+
+    .phone > input, .phone > input:last-child {
+        width: 100%;
+    }
+
+    .formBlock1 {
+        display: flex;
+        flex-direction: column;
+        margin-right: 10px;
+        width: 24%;
+        font-weight: bold;
+    }
+
+    .formBlock1 > label:first-child {
+        height: 60px;
+        margin-bottom: 20px;
+    }
+    
+    .formBlock1 > label:nth-child(3n) {
+        height: 90px;
+        margin-bottom: 30px;
+    }
+
+    .formBlock1 > label:nth-child(4n) {
+        height:30px;
+        margin-bottom: 38px;
+    }
+
+    .otherInfo > select {
+        margin-bottom: 38px;
+        width: 100%;
+    }
+
+    div > .submitButton {
+        width: 75%;
+        height: 30px;
+        line-height: 15px;
+        padding: 3px 0;
+        border: 3px solid rgb(5, 83, 77);
+        color: rgb(203, 231, 201);
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+    }
+}
