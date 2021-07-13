@@ -18,121 +18,110 @@ export default class SignUp extends Component {
             isPasswordValid: false, 
 
             isOnFocus: false,
+            isCursorOver: false,
         }
     }
 
-    handleNameChange = ( { target: {value} } )  => {
-        this.setState( { 
+    handleNameChange = ( { target: {value} } ) => {
+        this.setState({ 
             userName: value,
             isNameValid: /([A-Z][a-z]{1,19})/.test(value),
-        } );
+        });
     }
 
-    handleEmailChange = ( { target: {value} } )  => {
-        this.setState( { 
+    handleEmailChange = ( { target: {value} } ) => {
+        this.setState({ 
             userEmail: value,
             isEmailValid: /[\w]{1,19}@[a-z]{4,5}\.[a-z]{3}(\.[a-z]{2,3})?/.test(value),
-        } );
+        });
     }
 
-    handlePasswordChange = ( { target: {value} } )  => {
-        this.setState( { 
+    handlePasswordChange = ( { target: {value} } ) => {
+        this.setState({ 
             userPassword: value,
             isPasswordValid: /^\S{8,12}$/.test(value),
-        } );
+        });
     }
 
-    handleFocus = ( { target }) => {
-        this.setState( {
-            isOnFocus: true,
-        })
-    }
+    handleFocus = e => this.visualHandler('isOnFocus');
+    handleBlur = e => this.visualHandler('isOnFocus');
 
-    handleBlur = ( target ) => {
-        this.setState( {
-            isOnFocus: false,
-        })
+    handleMouseOver = e => this.visualHandler('isCursorOver');
+    handleMouseOut = e => this.visualHandler('isCursorOver');
+
+    visualHandler(name) {
+        this.setState( state => ( {[name]: !state[name]} ) );
     }
 
     submitHandler = e => {
         e.preventDefault();
-        alert('Wow!');
     }
 
     render() {
 
-        const { userName, isNameValid, userEmail, isEmailValid, userPassword, isPasswordValid, isOnFocus } = this.state;
+        const { userName, isNameValid, userEmail, isEmailValid, userPassword, isPasswordValid, isOnFocus, isCursorOver } = this.state;
 
         const userNameClassName = classNames( styles.userName, {
             [isNameValid ? styles.valid : styles.invalid]: userName,
-        } );
+        });
 
         const userEmailClassName = classNames( styles.emailInput, {
             [isEmailValid ? styles.valid : styles.invalid]: userEmail,
-        } );
+        });
 
         const userPasswordClassName = classNames( styles.password, {
             [isPasswordValid ? styles.valid : styles.invalid]: userPassword,
             [styles.onFocus]: isOnFocus,
-        } );
+        });
+
+        const buttonClassName = classNames( styles.submitButton, {
+            [styles.cursorOver]: isCursorOver,
+        });
 
         return (
             <form className={styles.container} onSubmit={this.submitHandler}>
                 <h2 className={styles.header}>Sign Up Form</h2>
                 <section className={styles.mainContent}>
-                    
                     <div className={styles.formBlock1}>
-                        <label htmlFor="name">Name</label>
-                        <label htmlFor="email">Email</label>
-                        <label htmlFor="password">Password</label>
+                        <label className={styles.nameLabel} htmlFor="name">Name</label>
+                        <label className={styles.emailLabel} htmlFor="email">Email</label>
+                        <label className={styles.passwordLabel} htmlFor="password">Password</label>
                     </div>
                     <div className={styles.formBlock2}>
-                        <div className={styles.fullname}>
-                            <input
-                                className={userNameClassName} 
-                                type="text"
-                                id='name' 
-                                placeholder='Name...'
-                                value={userName}
-                                autoFocus
-                                maxLength={20}
-                                required
-                                onChange={this.handleNameChange}
-                            />
-                        </div>
-                        <div className={styles.email}>
-                            <input
-                                className={userEmailClassName} 
-                                type="email"
-                                id='email'  
-                                placeholder='Email...'
-                                value={userEmail}
-                                maxLength={35}
-                                required
-                                onChange={this.handleEmailChange}
-                            />
-                        </div>
-                        <div className={styles.phone}>
-                            <input
-                                className={userPasswordClassName} 
-                                type="password"
-                                id="password" 
-                                placeholder='Password...'
-                                value={userPassword}
-                                maxLength={12}
-                                required
-                                onChange={this.handlePasswordChange}
-                                onFocus={this.handleFocus}
-                                onBlur={this.handleBlur}
-                            />
-                        </div>
+                        <input
+                            className={userNameClassName} 
+                            type="text"
+                            id='name' 
+                            placeholder='Name...'
+                            value={userName}
+                            autoFocus
+                            maxLength={20}
+                            onChange={this.handleNameChange}
+                        />
+                        <input
+                            className={userEmailClassName} 
+                            type="email"
+                            id='email'  
+                            placeholder='Email...'
+                            value={userEmail}
+                            maxLength={35}
+                            onChange={this.handleEmailChange}
+                        />
+                        <input
+                            className={userPasswordClassName} 
+                            type="password"
+                            id="password" 
+                            placeholder='Password...'
+                            value={userPassword}
+                            maxLength={12}
+                            onChange={this.handlePasswordChange}
+                            onFocus={this.handleFocus}
+                            onBlur={this.handleBlur}
+                        />
                     </div>
                 </section>
-                <div className={styles.line}>
-                    <hr/>
-                </div>
                 <div className={styles.button}>
-                    <input className={styles.submitButton} type="submit" value="SIGN UP" />
+                    <input className={buttonClassName} type="submit" onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} value="SIGN UP" />
                 </div>
             </form>
         )

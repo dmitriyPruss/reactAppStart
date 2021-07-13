@@ -8,12 +8,12 @@
 
 .container {
     height: 95%;
-    width: 90%;
+    width: 80%;
     margin: 10px auto;
     padding: 20px;
     box-shadow: 2px 7px 7px rgb(3, 28, 61);
     overflow-y: auto;
-    background: linear-gradient(blue, lightblue, white, lightblue);
+    background: linear-gradient( rgb(71, 71, 212), lightblue, rgb(207, 220, 223), lightblue, rgb(74, 74, 226));
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -27,13 +27,13 @@
     justify-content: center;
 }
 
-.header{
+.header {
     justify-self: flex-start;
     color: white;
 }
 
 .formBlock1 {
-    width: 30%;
+    width: 35%;
     display: flex;
     flex-direction: column;
     font-weight: bold;
@@ -45,30 +45,23 @@
     flex-direction: column;
 }
 
-.fullname, .email, .phone, .otherInfo{
+.userName, .emailInput, .password {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.userName, .password {
-    width: 100%;
-}
-
-.emailInput {
-    width: 100%;
-}
-
-
-input, textarea, select {
     font-size: 1.1rem;
     font-family: 'Times New Roman', Times, serif;
-}
-
-input, label, select {
     height: 30px;
     line-height: 30px;
     margin-bottom: 10px;
+}
+
+.nameLabel, .emailLabel, .passwordLabel {
+    height: 30px;
+    width: 50px;
+    line-height: 30px;
+    margin: 0 0 10px 80px;
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    text-shadow: 5px 5px 6px rgb(95, 92, 92);
 }
 
 .valid {
@@ -86,19 +79,15 @@ input, label, select {
     border: 2px double blue;
 }
 
-.line {
-    width: 100%;
-}
-
 .button {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 50px; 
 }
 
-.button > .submitButton {
-    width: 50%;
+.submitButton {
+    width: 30%;
     height: 35px;
     line-height: 17px;
     padding: 3px 0;
@@ -111,39 +100,33 @@ input, label, select {
     cursor: pointer;
 }
 
-@media screen and (max-width: 890px) {
-    article {
-        display: flex;
-        flex-direction: column;
+.cursorOver {
+    background-color: azure;
+    color: rgb(51, 51, 172);
+    border: 3px solid rgb(21, 4, 48);
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        min-width: 490px;
         height: 97%;
         width: 99%;
-        margin: 0 auto;
-        padding: 2px;
-        color: white;
-        box-shadow: -1px -1px 5px 5px rgb(7, 95, 88);
+        margin: 10px auto;
+        padding: 10px;
+        box-shadow: 2px 7px 7px rgb(3, 28, 61);
+        overflow-y: auto;
+        background: linear-gradient( rgb(71, 71, 212), lightblue, rgb(207, 220, 223), lightblue, rgb(74, 74, 226));
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
     }
 
-    section {
+    .mainContent {
         margin: 35px 0;
         width: 100%;
         display: flex;
         justify-content: space-between;
-    }
-
-    .fullname, .phone{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: space-between;
-    }
-
-    .fullname > input {
-        width: 100%;
-    }
-
-    .phone > input, .phone > input:last-child {
-        width: 100%;
     }
 
     .formBlock1 {
@@ -154,35 +137,9 @@ input, label, select {
         font-weight: bold;
     }
 
-    .formBlock1 > label:first-child {
-        height: 60px;
-        margin-bottom: 20px;
-    }
-    
-    .formBlock1 > label:nth-child(3n) {
-        height: 90px;
-        margin-bottom: 30px;
-    }
-
-    .formBlock1 > label:nth-child(4n) {
-        height:30px;
-        margin-bottom: 38px;
-    }
-
-    .otherInfo > select {
-        margin-bottom: 38px;
-        width: 100%;
-    }
-
-    div > .submitButton {
-        width: 75%;
-        height: 30px;
-        line-height: 15px;
-        padding: 3px 0;
-        border: 3px solid rgb(5, 83, 77);
-        color: rgb(203, 231, 201);
-        font-weight: bold;
-        text-align: center;
-        cursor: pointer;
+    .formBlock2 {
+        width: 58%;
+        display: flex;
+        flex-direction: column;
     }
 }
