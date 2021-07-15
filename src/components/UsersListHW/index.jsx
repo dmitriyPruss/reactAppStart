@@ -45,7 +45,7 @@ export default class UsersListHW extends Component {
                         
             promise.then( () => {
                 newUsers.splice(index, 1);
-                this.setState({users: newUsers});
+                this.setUsers(newUsers);
             });
         }
 
