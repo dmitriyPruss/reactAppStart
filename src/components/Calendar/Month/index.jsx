@@ -23,7 +23,7 @@ function Month(props) {
 
   return (
     <section className={styles.monthContainer}>
-      <table>
+      <table className={styles.calendarTable}>
         {/* Получить месяц и год */}
         <caption className={styles.monthHeader}>{format(date, 'MMMM y').toUpperCase()}</caption>
         <thead className={styles.weekDays}>

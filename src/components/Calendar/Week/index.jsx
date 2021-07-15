@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './../Calendar.module.scss';
 
-
 const getDaysOfWeek = (date, week, year) => {
   const startOfWeek = parse(`${year} ${week}`, 'Y w', new Date());
 
