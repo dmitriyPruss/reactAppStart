@@ -13,10 +13,6 @@ export default class UsersListHW extends Component {
         };
     };
 
-    setUsers = newUsers => {
-        this.setState({users: newUsers});
-    };
-
     showListItems = (user, index) => {
 
         const { users } = this.state;
@@ -24,12 +20,12 @@ export default class UsersListHW extends Component {
 
         const addLike = () => {
             newUsers[index].likesCount++;
-            this.setUsers(newUsers);      
+            this.setState({users: newUsers});   
         }
 
         const clickElement = () => {
             newUsers[index].isSelected = !newUsers[index].isSelected;
-            this.setUsers(newUsers);
+            this.setState({users: newUsers});
         }
 
         const deleteElement = () => {
@@ -38,14 +34,15 @@ export default class UsersListHW extends Component {
                 newUsers[index].isSelected = false;
                 newUsers[index].isDeleted = !newUsers[index].isDeleted;
 
-                this.setUsers(newUsers);
+                this.setState({users: newUsers});
 
                 setTimeout( () => response(true), 220);
             });
                         
             promise.then( () => {
                 newUsers.splice(index, 1);
-                this.setUsers(newUsers);
+
+                this.setState({users: newUsers});
             });
         }
 
