@@ -25,14 +25,14 @@ export default class SignUp extends Component {
     handleNameChange = ( { target: {value} } ) => {
         this.setState({ 
             userName: value,
-            isNameValid: /([A-Z][a-z]{1,19})/.test(value),
+            isNameValid: /^([A-Z][a-z]{1,19})$/.test(value),
         });
     }
 
     handleEmailChange = ( { target: {value} } ) => {
         this.setState({ 
             userEmail: value,
-            isEmailValid: /[\w]{1,19}@[a-z]{4,5}\.[a-z]{3}(\.[a-z]{2,3})?/.test(value),
+            isEmailValid: /^([\w]{1,20}@[a-z]{4,5}\.[a-z]{3}(\.[a-z]{2,3})?)$/.test(value),
         });
     }
 

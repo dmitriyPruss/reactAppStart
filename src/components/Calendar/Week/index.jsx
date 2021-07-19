@@ -30,7 +30,7 @@ function Week(props) {
 }
 
 Week.propTypes = {
-  date: PropTypes.instanceOf(Date),
+  date: PropTypes.instanceOf(Date).isRequired,
   week: PropTypes.number.isRequired,
   year: PropTypes.number.isRequired,
 };

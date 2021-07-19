@@ -16,7 +16,7 @@ class Calendar extends Component {
     const { date } = this.state;
     return (
       <article className={styles.calendarContainer}>
-        <Day />
+        <Day date={date} />
         <Month date={date} />
       </article>
     );
@@ -24,3 +24,4 @@ class Calendar extends Component {
 }
 
 export default Calendar;
+
