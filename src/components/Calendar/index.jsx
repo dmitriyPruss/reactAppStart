@@ -8,7 +8,7 @@ class Calendar extends Component {
     super(props);
 
     this.state = {
-      date: new Date(),
+      date: new Date(2012, 11, 22),
     };
   }
 

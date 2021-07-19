@@ -1,5 +1,6 @@
-@import  './../sassPartials/vars';
-@import  './../sassPartials/inherit';
+@import  './sassPartials/vars';
+@import  './sassPartials/inherits';
+@import  './sassPartials/mixins';
 
 * {
     box-sizing: border-box;
@@ -10,9 +11,15 @@
     display: flex;
     border: 15px outset green;
     width: 95%;
-    height: 70vh;
-    min-width: 545px;
+    height: 100%;
+    min-width: 360px;
     margin: $marginTop auto 0;
+
+    @media screen and (max-width:790px) {
+        display: flex;
+        flex-direction: column;
+        margin: 5px auto 0;
+    }
 }
 
 .dayContainer {
@@ -20,22 +27,29 @@
     background-color: rgb(74, 179, 144);
     width: 50%;
     @extend %flex-settings;
-
+    
     .dayOfWeek {
         font-size: $fontSize * 1.2; 
     }
 
     .dayOfMonth {
         margin-top: $marginTop;
-        font-size: $fontSize * 9;
-        height: 60%;
-    }    
+        font-size: $fontSize * 8;
+    }
+    
+    @media screen and (max-width:790px) {
+        @include mediaInclude(100%, 5px);
+    }
 }
 
 .monthContainer {
     @extend %flex-settings;
     font-size: $fontSize;
     width: 50%;
+
+    @media screen and (max-width:790px) {
+        @include mediaInclude(100%, 5px);
+    }
 }
 
 .calendarTable {
@@ -43,9 +57,9 @@
     border-spacing: 20px;
     text-align: center;
 
-    @media screen and (max-width:750px) {
-        width: 95%;
-        border-spacing: 3px;
+    @media screen and (max-width:790px) {
+        width: 75%;
+        border-spacing: 15px;
     }
 }
 
