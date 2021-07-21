@@ -39,6 +39,11 @@
     
     @media screen and (max-width:790px) {
         @include mediaInclude(100%, 5px);
+
+        .dayOfMonth {
+            margin-top: 3px;
+            font-size: $fontSize * 7;
+        }
     }
 }
 
