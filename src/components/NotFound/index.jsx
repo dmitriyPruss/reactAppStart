@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import styles from './../../Classes.module.css';
-
+import styles from './../../App.module.scss';
 
 class NotFound extends Component {
 
@@ -58,7 +57,7 @@ class NotFound extends Component {
         const { str } = this.state;
         const { history } = this.props;
 
-        setTimeout( () => history.push('/home'), 3000 );
+        setTimeout( () => history.push('/'), 3000 );
 
         return (
             <div className={styles.pageNotFound}>{str}</div>

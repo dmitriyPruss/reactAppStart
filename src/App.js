@@ -15,9 +15,7 @@ import SignUp  from './components/SignUp';
 import Calendar from './components/Calendar';
 import Greeting from './components/Greeting';
 import StopWatch from './components/StopWatch';
-
-import styles from './Classes.module.css';
-
+import styles from './App.module.scss';
 
 function App() {
   return (
@@ -25,7 +23,10 @@ function App() {
       <Router>
         <ul className={styles.list}>
           <li className={styles.listItem}>
-            <Link className={styles.link} to={'/home'}>Home</Link>
+            <Link className={styles.link} to={'/'}>Home</Link>
+          </li>
+          <li className={styles.listItem}>
+            <Link className={styles.link} to={'/components'}>Components</Link>
           </li>
           <li className={styles.listItem}>
             <Link className={styles.link} to={'/calendar'}>Calendar</Link>
@@ -38,8 +39,11 @@ function App() {
           </li>
         </ul>
         <Switch>
-          <Route path={'/home'}>
-            <Home />
+          <Route exact path={'/'}>
+            <div className={styles.pageTitle}>Home page</div>
+          </Route>
+          <Route path={'/components'}>
+            <Components />
           </Route>
           <Route path={'/calendar'}>
             <Calendar />
@@ -58,7 +62,7 @@ function App() {
 };
 
 
-function Home() {
+function Components() {
 
   const { path, url } = useRouteMatch();
 
@@ -89,7 +93,7 @@ function Home() {
 
 function PageHeader() {
   return (
-    <h1 className={styles.home}>Home page</h1>
+    <h1 className={styles.pageTitle}>Some components</h1>
   )
 }
 

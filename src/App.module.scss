@@ -1,7 +1,9 @@
+@import './common/styles/vars';
+
 .selectMenu {
   width: 100%;
-  background: linear-gradient(rgb(154, 154, 228), rgb(198, 223, 231), white);
-  min-width: 400px;
+  background: $back;
+  min-width: $top * 2;
 }
 
 .list {
@@ -11,45 +13,45 @@
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: $pos;
   flex-wrap: wrap;
+
+  .listItem {
+    display: flex;
+    flex-direction: column;
+    align-items: $pos;
+    padding: 15px 0;
+  }
 }
 
-.listItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 15px 0;
-}
-  
 .link {
   text-decoration: none;
   font-size: 1.4em;
   font-weight: bold;
   color: #1411aa;
-}
 
-.link:hover {
-  color: white;
+  &:hover {
+    color: white;
+  }
 }
 
 .pageNotFound {
-  margin-top: 200px;
+  margin-top: $top;
   font-size: 2.5em;
   word-spacing: 0.4em;
   letter-spacing: 0.2em;
   text-shadow: 3px 3px 6px rgb(46, 2, 2);
   color: red;
-  text-align: center;
+  text-align: $pos;
 }
 
-.home {
-  margin-top: 200px;
+.pageTitle {
+  margin-top: $top;
   font-size: 3em;
   font-weight: bold;
   word-spacing: 0.5em;
   letter-spacing: 0.3em;
   text-shadow: 4px 4px 7px rgb(15, 5, 43);
   color: rgb(19, 16, 163);
-  text-align: center;
+  text-align: $pos;
 }
